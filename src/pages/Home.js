@@ -3,11 +3,10 @@ import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  console.log("this is home component");
   useEffect(() => {
-    fetch("products.json")
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data.data));
   }, []);
 
   const activeClass = "text-white  bg-indigo-500 border-white";
@@ -28,9 +27,10 @@ const Home = () => {
         </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
-        {products.map((product) => (
-          <ProductCard key={product.model} product={product} />
-        ))}
+        {products &&
+          products.map((product) => (
+            <ProductCard key={product.model} product={product} />
+          ))}
       </div>
     </div>
   );

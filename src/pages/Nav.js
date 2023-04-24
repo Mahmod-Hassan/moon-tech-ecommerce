@@ -10,7 +10,7 @@ const Nav = () => {
       <ul className="mx-auto flex justify-between items-center gap-3 font-semibold">
         <h1>Moon Tech</h1>
 
-        <li className="flex mx-auto flex-1 items-center max-w-md rounded-full relative">
+        <li className="flex mx-auto flex-1 place-items-center max-w-md rounded-full relative">
           <input
             className="shadow-md p-2 pl-5 rounded-full w-full text-sm border-0 focus:ring-0 outline-none"
             type="text"

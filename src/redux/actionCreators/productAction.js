@@ -1,4 +1,11 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../actionTypes";
+import {
+  ADD_PRODUCT,
+  ADD_TO_CART,
+  LOAD_PRODUCT,
+  PRODUCT_LOADED,
+  REMOVE_FROM_CART,
+  REMOVE_PRODUCT,
+} from "../actionTypes";
 
 export const addToCart = (product) => {
   return {
@@ -10,5 +17,32 @@ export const removeFromCart = (product) => {
   return {
     type: REMOVE_FROM_CART,
     payload: product,
+  };
+};
+export const loadProduct = (data) => {
+  return {
+    type: LOAD_PRODUCT,
+    payload: data,
+  };
+};
+
+export const addProduct = (data) => {
+  return {
+    type: ADD_PRODUCT,
+    payload: data,
+  };
+};
+
+export const removeProduct = (id) => {
+  return {
+    type: REMOVE_PRODUCT,
+    payload: id,
+  };
+};
+
+export const loaded = (products) => {
+  return {
+    type: PRODUCT_LOADED,
+    payload: products,
   };
 };
