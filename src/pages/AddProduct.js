@@ -1,9 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import addProductData from "../redux/thunk/products/addProductData";
 
 const AddProduct = () => {
-  const { register, handleSubmit } = useForm();
-
+  const { register, handleSubmit, reset } = useForm();
+  const dispatch = useDispatch();
   const submit = (data) => {
     const product = {
       model: data.model,
@@ -18,8 +20,8 @@ const AddProduct = () => {
       ],
       spec: [],
     };
-
-    console.log(product);
+    dispatch(addProductData(product));
+    reset();
   };
 
   return (
@@ -63,7 +65,7 @@ const AddProduct = () => {
         </div>
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="price">
-            Image
+            Price
           </label>
           <input
             className="border border-black"
@@ -94,7 +96,6 @@ const AddProduct = () => {
                 className="border border-black"
                 type="radio"
                 id="stockOut"
-                name="status"
                 value={false}
                 {...register("status")}
               />
